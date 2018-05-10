@@ -1,2 +1,2 @@
 # virtubank
-Online Banking Application
+Online Bank Application
