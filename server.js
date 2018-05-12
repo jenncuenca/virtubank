@@ -23,11 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static directory
-app.use(express.static("public"));
+app.use(express.static(process.cwd() + '/public'));
 
 // Routes
 // =============================================================
-//require("./routes/api-routes.js")(app);
+var router = require('./controllers/bank_controller.js');
+app.use('/', router);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
