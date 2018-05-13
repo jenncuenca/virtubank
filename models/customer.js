@@ -2,12 +2,12 @@ module.exports = function(sequelize, DataTypes) {
     var Customer = sequelize.define("Customer", {
            
            //first field
-            customer_no: {
+            id: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             allowNull: false,
             unique: true,
             validate: { }
-             
         },
            //second field
            customer_name:{
@@ -77,8 +77,7 @@ module.exports = function(sequelize, DataTypes) {
                           msg: "Customer Loginid has to have alteast 5 Characters !"
                       }
                   }
-         },
-
+         }
     });
     return Customer;
   };

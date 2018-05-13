@@ -3,8 +3,9 @@ module.exports = function(sequelize, DataTypes) {
            
            //first field
 
-           ac_number: {
+           id: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             allowNull: false,
             unique: true,
             validate: { }
