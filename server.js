@@ -25,6 +25,14 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static(process.cwd() + '/public'));
 
+
+//Sets up the handlebar engine.
+//==================================================================
+//var exphbs = require('express-handlebars');
+//app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+//app.set('view engine', 'handlebars');
+
+
 // Routes
 // =============================================================
 var router = require('./controllers/bank_controller.js');

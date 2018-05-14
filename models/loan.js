@@ -3,8 +3,9 @@ module.exports = function(sequelize, DataTypes) {
            
            //first field
 
-           ac_number: {
+           id: {
             type: DataTypes.INTEGER,
+            primaryKey: true,
             allowNull: false,
             unique: true,
             validate: { }
@@ -25,7 +26,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: { }
            },
 
-        loan_vdata: {
+        loan_vdate: {
             type: DataTypes.DATE,
             allowNull: false,
             unique: false,

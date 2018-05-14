@@ -3,8 +3,9 @@ module.exports = function(sequelize, DataTypes) {
            
            //first field
 
-           txn_ref: {
-            type: DataTypes.INTEGER,
+           id: {
+            type: DataTypes.CHAR,
+            primaryKey: true,
             allowNull: false,
             unique: true,
             validate: { }
