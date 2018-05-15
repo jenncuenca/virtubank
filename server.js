@@ -7,6 +7,11 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 
+//passport for user authentication
+var passport   = require('passport')
+var session    = require('express-session')
+
+
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -14,6 +19,12 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 var db = require("./models");
+
+//Authentication Routes
+var authRoute = require('./app/routes/auth.js')(app);
+
+//load passport strategies
+require('./app/config/passport/passport.js')(passport, models.user);
 
 // Sets up the Express app to handle data parsing
 
@@ -25,6 +36,14 @@ app.use(bodyParser.json());
 // Static directory
 app.use(express.static(process.cwd() + '/public'));
 
+// For Passport
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+})); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
 
 //Sets up the handlebar engine.
 //==================================================================
