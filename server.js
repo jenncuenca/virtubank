@@ -34,7 +34,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static directory
-app.use(express.static(process.cwd() + '/public'));
+app.use(express.static(process.cwd() + '/public/assets'));
 
 // For Passport
 app.use(session({
