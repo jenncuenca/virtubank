@@ -4,12 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Bank Home Page</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS & JS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
 
 </head>
 
@@ -17,8 +16,10 @@
 
     <div class="navbar-fixed">
         <nav>
-            <div class="nav-wrapper grey accent-8">
-                <a href="/home"> VirtuBank - Welcome User</a>
+            <div class="nav-wrapper grey accent-7">
+                    <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center" id="logo">
+                    <img/>
+                <a href="/home" class="header">| Welcome User</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
                         <a href="/accounts">Accounts</a>
@@ -100,8 +101,9 @@
             </div>
         </div>
         <div class="footer-copyright grey accent-8">
-            <div class="container">
-                © VirtuBank
+            <div class="container center">
+                    <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center">
+                    <img/>
             </div>
         </div>
     </footer>
@@ -119,6 +121,22 @@
 
     h2 {
         color: white;
+    }
+    div.nav-wrapper.grey.accent-8 {
+        background: #4caf5087;
+    }
+
+    .header {
+        margin-left: 10px;
+    }
+
+    #logo {
+        height:50px;
+        width:auto;
+    }
+
+    .parallax-container {
+        height:300px;
     }
 
 </style>
