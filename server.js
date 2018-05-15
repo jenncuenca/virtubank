@@ -21,10 +21,10 @@ var PORT = process.env.PORT || 8080;
 var db = require("./models");
 
 //Authentication Routes
-var authRoute = require('./app/routes/auth.js')(app);
+var authRoute = require('./routes/auth.js')(app, passport);
 
 //load passport strategies
-require('./app/config/passport/passport.js')(passport, models.user);
+require('./config/passport/passport.js')(passport, db.customer);
 
 // Sets up the Express app to handle data parsing
 
