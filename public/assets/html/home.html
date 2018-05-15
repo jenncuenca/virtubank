@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bank Home Page</title>
+
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey accent-8">
+                <a href="/home"> VirtuBank - Welcome User</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="/accounts">Accounts</a>
+                    </li>
+                    <li>
+                        <a href="/loans">Loans</a>
+                    </li>
+                    <li>
+                        <a href="/login">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="https://cdn.suwalls.com/wallpapers/nature/foggy-hills-47135-1920x1200.jpg">
+        </div>
+    </div>
+
+
+    <div class="section green accent-8">
+        <div class="container">
+            <div class="col s12 white-text">
+                <table>
+                    <tr>
+                      <th>Account</th>
+                      <th>Balance</th>
+                      <th>Etc</th>
+                    </tr>
+                    <tr>
+                      <td>Checking</td>
+                      <td>$2200</td>
+                      <td>.</td>
+                    </tr>
+                    <tr>
+                      <td>Savings</td>
+                      <td>$1000</td>
+                      <td>.</td>
+                    </tr>
+                  </table>
+                <br>
+
+                <div>
+                    <a href="/loans">
+                        <button type="button" class="waves-effect waves-light btn grey accent-2">Apply For Loan</button>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container">
+        <div class="parallax">
+            <img src="https://cdn.wallpapersafari.com/93/36/Szj7pi.jpg">
+        </div>
+    </div>
+
+    <footer class="page-footer green accent-8">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Bank Statements</h5>
+                    <p class="grey-text text-lighten-4">View Statements here.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="/accounts">Accounts</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="/api/customers">Contact Information</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright grey accent-8">
+            <div class="container">
+                © VirtuBank
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        $(document).ready(function () {
+            $('.parallax').parallax();
+        });
+    </script>
+
+<style>
+    body {
+        background: rgba(187, 134, 134, 0.219);
+    }
+
+    h2 {
+        color: white;
+    }
+
+</style>
+
+</body>
+
+</html>
