@@ -17,8 +17,8 @@
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper grey accent-7">
-                    <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center" id="logo">
-                    <img/>
+                <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center" id="logo">
+                <img/>
                 <a href="/home" class="header">| Welcome User</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
@@ -35,9 +35,9 @@
         </nav>
     </div>
 
-    <div class="parallax-container">
+    <div class="parallax-container bgimg1">
         <div class="parallax">
-            <img src="https://cdn.suwalls.com/wallpapers/nature/foggy-hills-47135-1920x1200.jpg">
+            <img src="https://wallpaperlayer.com/img/2015/10/sunshine-wallpaper-7486-7775-hd-wallpapers.jpg">
         </div>
     </div>
 
@@ -47,36 +47,70 @@
             <div class="col s12 white-text">
                 <table>
                     <tr>
-                      <th>Account</th>
-                      <th>Balance</th>
-                      <th>Etc</th>
+                        <th>Account</th>
+                        <th>Balance</th>
+                        <th>Deposit</th>
+                        <th>Withdraw</th>
                     </tr>
                     <tr>
-                      <td>Checking</td>
-                      <td>$2200</td>
-                      <td>.</td>
+                        <td>Checking</td>
+                        <td>$2200</td>
+                        <td>.</td>
+                        <td>.</td>
                     </tr>
                     <tr>
-                      <td>Savings</td>
-                      <td>$1000</td>
-                      <td>.</td>
+                        <td>Savings</td>
+                        <td>$1000</td>
+                        <td>.</td>
+                        <td>.</td>
                     </tr>
-                  </table>
+                </table>
                 <br>
 
                 <div>
-                    <a href="/loans">
-                        <button type="button" class="waves-effect waves-light btn grey accent-2">Apply For Loan</button>
+                    <a href="#">
+                        <button type="button" class="waves-effect waves-light btn grey accent-2" data-toggle="modal" data-target=".loan-modal">Apply For Loan</button>
                     </a>
+                </div>
+                <div class="modal fade loan-modal" tabindex="-1" role="dialog" aria-labelledby="myLoanModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">
+                                    <span aria-hidden="true">×</span>
+                                    <span class="sr-only">Close</span>
+                                </button>
+                                <h4 class="modal-title" style="color:black">Apply for Loan</h4>
+                            </div>
+                            <div class="modal-body">
+                                <p>Name:</p>
+                                <input type="name" name="name" id="customer-name" class="form-control" autocomplete="off">
+                                <p>Email:</p>
+                                <input type="email" name="signup-email" id="signup-email" class="form-control" autocomplete="off">
+                                <p>Phone Number:</p>
+                                <input type="number" name="phone-number" id="phone-number" class="form-control" autocomplete="off">
+                                <p>Address:</p>
+                                <input type="address" name="address" id="address" class="form-control" autocomplete="off">
+                                <p>Login ID:</p>
+                                <input type="id" name="id" id="login-id" class="form-control" autocomplete="off">
+                                <p>Enter Password:</p>
+                                <input type="password" name="newpw" id="newpw" class="form-control" autocomplete="off">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-custom" style="color:black">Submit</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
         </div>
     </div>
 
-    <div class="parallax-container">
+    <div class="parallax-container bgimg2">
         <div class="parallax">
-            <img src="https://cdn.wallpapersafari.com/93/36/Szj7pi.jpg">
+            <img src="http://www.hd-wallpapersdownload.com/script/new-wallpaper/wonderful-sunshine-nature-wallpaper-in-hd.jpg">
         </div>
     </div>
 
@@ -102,8 +136,8 @@
         </div>
         <div class="footer-copyright grey accent-8">
             <div class="container center">
-                    <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center">
-                    <img/>
+                <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center">
+                <img/>
             </div>
         </div>
     </footer>
@@ -114,42 +148,52 @@
         });
     </script>
 
-<style>
-    body {
-        background: rgba(187, 134, 134, 0.219);
-    }
+    <style>
+        body {
+            background: rgba(187, 134, 134, 0.219);
+        }
 
-    h2 {
-        color: white;
-    }
-    div.nav-wrapper.grey.accent-8 {
-        background: #4caf5087;
-    }
+        h2 {
+            color: white;
+        }
 
-    .header {
-        margin-left: 10px;
-    }
+        div.nav-wrapper.grey.accent-8 {
+            background: #4caf5087;
+        }
 
-    #logo {
-        height:50px;
-        width:auto;
-    }
+        .bgimg1,
+        .bgimg2 {
+            position: relative;
+            opacity: 0.65;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
 
-    .parallax-container {
-        height:300px;
-    }
+        .header {
+            margin-left: 10px;
+        }
 
-    .page-footer {
-    padding-top: 20px;
-    color: #fff;
-    background-color: #9cbf84;
-    }
+        #logo {
+            height: 50px;
+            width: auto;
+        }
 
-    .green {
-    background-color: #9cbf84 !important;
-}
+        .parallax-container {
+            height: 300px;
+        }
 
-</style>
+        .page-footer {
+            padding-top: 20px;
+            color: #fff;
+            background-color: #9cbf84;
+        }
+
+        .green {
+            background-color: #9cbf84 !important;
+        }
+    </style>
 
 </body>
 
