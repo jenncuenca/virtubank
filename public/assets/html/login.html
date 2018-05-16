@@ -61,10 +61,11 @@
 
         .signup {
             text-decoration: none;
-            color:black;
+            color: green;
         }
+
         .signup:hover {
-            color:green;
+            color: white;
         }
 
         h3 {
@@ -74,12 +75,18 @@
             color: #111;
         }
 
+        div.modal-body {
+            background-color: #00800026;
+            color: black;
+            text-align: left;
+        }
+
         /* Turn off parallax scrolling for tablets and phones */
 
         @media only screen and (max-device-width: 1024px) {
             .bgimg-1,
             .bgimg-2,
-            .bgimg-3 {
+            .bgimg-4 {
                 background-attachment: scroll;
             }
         }
@@ -95,19 +102,20 @@
         </div>
     </div>
 
-    <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+    <div style="color: #83a46c;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
         <h3 style="text-align:center;">Welcome</h3>
         <p class="text-center">Online and Mobile Banking Made Easy..</p>
     </div>
 
     <div class="bgimg-2">
         <div class="caption">
-            <span class="border" style="background-color:transparent;font-size:25px;color: #000;">Enroll <a href="#" class="signup" data-toggle="modal" data-target=".signup-modal">Here</a> Today</a></span>
+            <span class="border" style="background-color:transparent;font-size:25px;color: #000;">Enroll<a href="#" class="signup" data-toggle="modal" data-target=".signup-modal">Here</a>Today</a>
+            </span>
         </div>
     </div>
 
     <div style="position:relative;">
-        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: center;">
+        <div style="color:#ddd;background-color:#9cbf84;text-align:center;padding:50px 80px;text-align: center;">
             <div class="form-wrap">
                 <h1>Log in with your User-ID </h1>
                 <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
@@ -123,7 +131,7 @@
                         <span class="character-checkbox" onclick="showPassword()"></span>
                         <span class="label">Show password</span>
                     </div>
-                    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
+                    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in" style="color:grey">
                 </form>
                 <a href="#" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
                 <hr>
@@ -137,15 +145,15 @@
                                 <span aria-hidden="true">×</span>
                                 <span class="sr-only">Close</span>
                             </button>
-                            <h4 class="modal-title">Recovery password</h4>
+                            <h4 class="modal-title" style="color:black">Recover password</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Type your email account</p>
+                            <p>Enter Email Address:</p>
                             <input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off">
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-custom">Recovery</button>
+                            <button type="button" class="btn btn-custom" style="color:black">Recover</button>
                         </div>
                     </div>
                 </div>
@@ -159,28 +167,28 @@
                                 <span aria-hidden="true">×</span>
                                 <span class="sr-only">Close</span>
                             </button>
-                            <h4 class="modal-title">Sign-Up</h4>
+                            <h4 class="modal-title" style="color:black">Sign-Up</h4>
                         </div>
                         <div class="modal-body">
-                            <p>Name</p>
+                            <p>Name:</p>
                             <input type="name" name="name" id="customer-name" class="form-control" autocomplete="off">
-                            <p>Email</p>
+                            <p>Email:</p>
                             <input type="email" name="signup-email" id="signup-email" class="form-control" autocomplete="off">
-                            <p>Phone Number</p>
+                            <p>Phone Number:</p>
                             <input type="number" name="phone-number" id="phone-number" class="form-control" autocomplete="off">
-                            <p>Address</p>
+                            <p>Address:</p>
                             <input type="address" name="address" id="address" class="form-control" autocomplete="off">
-                            <p>Login ID</p>
+                            <p>Login ID:</p>
                             <input type="id" name="id" id="login-id" class="form-control" autocomplete="off">
-                            <p>Create Password</p>
+                            <p>Create Password:</p>
                             <input type="password" name="newpw" id="newpw" class="form-control" autocomplete="off">
-                            <p>Confirm Password</p>
+                            <p>Confirm Password:</p>
                             <input type="password" name="confirmpw" id="confirmpw" class="form-control" autocomplete="off">
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-custom">Enroll</button>
+                            <button type="button" class="btn btn-custom enroll" style="color:black">Enroll</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
@@ -225,6 +233,41 @@
                     });
 
             });
+            // ============ N e w - U s e r - S i g n U p ===================
+            $(".signup").on("click", function (event) {
+                event.preventDefault();
+
+                if ($("#newpw") === $("#confirmpw")) {
+                    var newUser = {
+                        userName: $("#customer-name").val().trim(),
+                        userEmail: $("#signup-email").val().trim(),
+                        userPhone: $("#phone-number").val().trim(),
+                        userAddress: $("#address").val().trim(),
+                        userID: $("#login-id").val().trim(),
+                        userPw: $("#confirmpw").val().trim()
+                    }
+                }
+
+                console.log(newUser);
+
+                $.post("/customers", newUser, function (data) {
+                    if (data) {
+                        // DIRECT TO HOME PAGE?
+                    } else {
+                        alert("Oops!")
+                    }
+                    $("#customer-name").val("");
+                    $("#signup-email").val("");
+                    $("#phone-number").val("");
+                    $("#address").val("");
+                    $("#login-id").val("");
+                    $("#confirmpw").val("");
+
+                })
+
+            })
+
+
         });
     </script>
 
