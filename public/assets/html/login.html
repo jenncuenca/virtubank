@@ -2,163 +2,231 @@
 <html>
 
 <head>
-
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
+    <style>
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            font: 400 15px/1.8 "Lato", sans-serif;
+            color: #777;
+        }
 
+        .bgimg-1,
+        .bgimg-2,
+        .bgimg-4 {
+            position: relative;
+            opacity: 0.65;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
 
+        }
+
+        .bgimg-1 {
+            background-image: url("https://assets1.ello.co/uploads/user/cover_image/231778/ello-optimized-ddb982ee.jpg");
+            min-height: 100%;
+        }
+
+        .bgimg-2 {
+            background-image: url("https://cdn.wallpapersafari.com/84/97/a8ikhj.jpg");
+            min-height: 400px;
+        }
+
+        .bgimg-4 {
+            background-image: url("http://www.zastavki.com/pictures/originals/2015/People_Most_loving_family_097669_.jpg");
+            min-height: 100%;
+        }
+
+        .caption {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            color: #000;
+        }
+
+        .caption span.border {
+            background-color: #111;
+            color: #fff;
+            padding: 18px;
+            font-size: 25px;
+            letter-spacing: 10px;
+        }
+
+        .signup {
+            text-decoration: none;
+            color:black;
+        }
+        .signup:hover {
+            color:green;
+        }
+
+        h3 {
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font: 20px "Lato", sans-serif;
+            color: #111;
+        }
+
+        /* Turn off parallax scrolling for tablets and phones */
+
+        @media only screen and (max-device-width: 1024px) {
+            .bgimg-1,
+            .bgimg-2,
+            .bgimg-3 {
+                background-attachment: scroll;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <div class="jumbotron">
 
-        <h2 class="text-center"> Banking Without Limits</h2>
-        <br>
-        <section id="login">
-            <div class="container">
-                <h1>
-                    <img src="../images/Asset 1hdpi.png" alt="virtuabank logo" class="text-center">
-                    <img/>
-                </h1>
+    <div class="bgimg-1">
+        <div class="caption">
+            <img src="../images/Asset 1xxhdpi.png" alt="virtuabank logo" class="text-center">
+            <img/>
+        </div>
+    </div>
+
+    <div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+        <h3 style="text-align:center;">Welcome</h3>
+        <p class="text-center">Online and Mobile Banking Made Easy..</p>
+    </div>
+
+    <div class="bgimg-2">
+        <div class="caption">
+            <span class="border" style="background-color:transparent;font-size:25px;color: #000;">Enroll <a href="#" class="signup" data-toggle="modal" data-target=".signup-modal">Here</a> Today</a></span>
+        </div>
+    </div>
+
+    <div style="position:relative;">
+        <div style="color:#ddd;background-color:#282E34;text-align:center;padding:50px 80px;text-align: center;">
+            <div class="form-wrap">
+                <h1>Log in with your User-ID </h1>
+                <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
+                    <div class="form-group">
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" name="email" id="email" class="form-control" placeholder="A Registered User Id">
+                    </div>
+                    <div class="form-group">
+                        <label for="key" class="sr-only">Password</label>
+                        <input type="password" name="key" id="key" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="checkbox">
+                        <span class="character-checkbox" onclick="showPassword()"></span>
+                        <span class="label">Show password</span>
+                    </div>
+                    <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
+                </form>
+                <a href="#" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?</a>
                 <hr>
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="form-wrap">
-                            <h1>Log in with your User-ID </h1>
-                            <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
-                                <div class="form-group">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="A Registered User Id">
-                                </div>
-                                <div class="form-group">
-                                    <label for="key" class="sr-only">Password</label>
-                                    <input type="password" name="key" id="key" class="form-control" placeholder="Password">
-                                </div>
-                                <div class="checkbox">
-                                    <span class="character-checkbox" onclick="showPassword()"></span>
-                                    <span class="label">Show password</span>
-                                </div>
-                                <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in">
-                            </form>
-                            <a href="javascript:;" class="forget" data-toggle="modal" data-target=".forget-modal">Forgot your password?  | </a>
-                            <a href="javascript:;" class="signup" data-toggle="modal" data-target=".signup-modal">Enroll</a>
-                            <hr>
+            </div>
+
+            <div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title">Recovery password</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Type your email account</p>
+                            <input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-custom">Recovery</button>
                         </div>
                     </div>
-                    <!-- /.col-xs-12 -->
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container -->
-        </section>
 
-        <div class="modal fade forget-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">×</span>
-                            <span class="sr-only">Close</span>
-                        </button>
-                        <h4 class="modal-title">Recovery password</h4>
+            <div class="modal fade signup-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">×</span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                            <h4 class="modal-title">Sign-Up</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Name</p>
+                            <input type="name" name="name" id="customer-name" class="form-control" autocomplete="off">
+                            <p>Email</p>
+                            <input type="email" name="signup-email" id="signup-email" class="form-control" autocomplete="off">
+                            <p>Phone Number</p>
+                            <input type="number" name="phone-number" id="phone-number" class="form-control" autocomplete="off">
+                            <p>Address</p>
+                            <input type="address" name="address" id="address" class="form-control" autocomplete="off">
+                            <p>Login ID</p>
+                            <input type="id" name="id" id="login-id" class="form-control" autocomplete="off">
+                            <p>Create Password</p>
+                            <input type="password" name="newpw" id="newpw" class="form-control" autocomplete="off">
+                            <p>Confirm Password</p>
+                            <input type="password" name="confirmpw" id="confirmpw" class="form-control" autocomplete="off">
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-custom">Enroll</button>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <p>Type your email account</p>
-                        <input type="email" name="recovery-email" id="recovery-email" class="form-control" autocomplete="off">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-custom">Recovery</button>
-                    </div>
+                    <!-- /.modal-content -->
                 </div>
-                <!-- /.modal-content -->
+                <!-- /.modal-dialog -->
             </div>
-            <!-- /.modal-dialog -->
+
         </div>
-        <!-- /.modal -->
+    </div>
 
-        <div class="modal fade signup-modal" tabindex="-1" role="dialog" aria-labelledby="myForgetModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">
-                            <span aria-hidden="true">×</span>
-                            <span class="sr-only">Close</span>
-                        </button>
-                        <h4 class="modal-title">Sign-Up</h4>
-                    </div>
-                    <div class="modal-body">
-                        <p>Name</p>
-                        <input type="name" name="name" id="customer-name" class="form-control" autocomplete="off">
-                        <p>Email</p>
-                        <input type="email" name="signup-email" id="signup-email" class="form-control" autocomplete="off">
-                        <p>Phone Number</p>
-                        <input type="number" name="phone-number" id="phone-number" class="form-control" autocomplete="off">
-                        <p>Address</p>
-                        <input type="address" name="address" id="address" class="form-control" autocomplete="off">
-                        <p>Login ID</p>
-                        <input type="id" name="id" id="login-id" class="form-control" autocomplete="off">
-                        <p>Create Password</p>
-                        <input type="password" name="newpw" id="newpw" class="form-control" autocomplete="off">
-                        <p>Confirm Password</p>
-                        <input type="password" name="confirmpw" id="confirmpw" class="form-control" autocomplete="off">
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-custom">Enroll</button>
-                    </div>
-                </div>
-                <!-- /.modal-content -->
-            </div>
-            <!-- /.modal-dialog -->
+    <div class="bgimg-4">
+        <div class="caption">
+            <span class="border">Thank You. :)</span>
         </div>
+    </div>
 
-        <footer id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <p>Page © - 2018</p>
-                        <!--         <p>Powered by The Untouchables<strong>target="_blank"></a></strong></p> -->
-                    </div>
-                </div>
-            </div>
-        </footer>
+    <script>
+        $(document).ready(function () {
 
-        <!-- <script src="../js/usrCheck.js" type="text/javascript"></script> -->
-        <script>
-            $(document).ready(function () {
-
-                // Getting a reference to the userid / email 
-                var newUserId = $("#email");
-                var newUserPwd = $('#key');
+            // Getting a reference to the userid / email 
+            var newUserId = $("#email");
+            var newUserPwd = $('#key');
 
 
-                $("#btn-login").on("click", function (event) {
+            $("#btn-login").on("click", function (event) {
 
-                    event.preventDefault();
+                event.preventDefault();
 
-                    var registeredCustomer = {
-                        customer_email: $("#email").val().trim(),
-                        customer_password: $("#key").val().trim(),
-                    };
+                var registeredCustomer = {
+                    customer_email: $("#email").val().trim(),
+                    customer_password: $("#key").val().trim(),
+                };
 
-                    $.post("/registeredCustomer", registeredCustomer)
-                        // on success, run this callback
-                        .then(function (data) {
-                            console.log(data);
+                $.post("/registeredCustomer", registeredCustomer)
+                    // on success, run this callback
+                    .then(function (data) {
+                        console.log(data);
 
 
-                            // tell the user we're adding a character with an alert window
-                            // alert(" Welcome you are a registered Customer..."); 
-                        });
+                        // tell the user we're adding a character with an alert window
+                        // alert(" Welcome you are a registered Customer..."); 
+                    });
 
-                });
             });
-        </script>
+        });
+    </script>
 
 </body>
 
