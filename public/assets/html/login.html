@@ -221,11 +221,11 @@
                     customer_email: $("#email").val().trim(),
                     customer_password: $("#key").val().trim(),
                 };
-
+                console.log("REG CUSTOMER: "+registeredCustomer);
                 $.post("/registeredCustomer", registeredCustomer)
                     // on success, run this callback
                     .then(function (data) {
-                        console.log(data);
+                        console.log("DATA: "+data);
 
 
                         // tell the user we're adding a character with an alert window
@@ -234,10 +234,10 @@
 
             });
             // ============ N e w - U s e r - S i g n U p ===================
-            $(".signup").on("click", function (event) {
+            $(".enroll").on("click", function (event) {
                 event.preventDefault();
 
-                if ($("#newpw") === $("#confirmpw")) {
+                if ($("#newpw").val().trim() === $("#confirmpw").val().trim()) {
                     var newUser = {
                         userName: $("#customer-name").val().trim(),
                         userEmail: $("#signup-email").val().trim(),
@@ -246,15 +246,19 @@
                         userID: $("#login-id").val().trim(),
                         userPw: $("#confirmpw").val().trim()
                     }
+                    console.log(newUser);
                 }
 
-                console.log(newUser);
+                
 
-                $.post("/customers", newUser, function (data) {
+                $.post("/registeredCustomer", newUser, function (data) {
                     if (data) {
-                        // DIRECT TO HOME PAGE?
+                        app.get("/home", function(req, res) {
+                            res.sendFile(path.join(__dirname, "../public/home.html"));
+                        });
+
                     } else {
-                        alert("Oops!")
+                        alert("Oops! Try again.")
                     }
                     $("#customer-name").val("");
                     $("#signup-email").val("");

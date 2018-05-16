@@ -15,10 +15,17 @@ router.get("/",function(req, res) {
    res.sendFile(process.cwd() + "/public/assets/html/login.html");
 });
 
+router.get("/home",function(req, res) {
+   
+  //res.send("Hello Word");
+  res.sendFile(process.cwd() + "/public/assets/html/home.html");
+});
+
+
 
 // get user login id and check against the database
 router.post("/registeredCustomer", function(req, res) {
-
+console.log('REQ BACKEND POST: ' +req);
   db.Customer.findOne({
       where: {customer_email: req.body.customer_email}
   }).then(function(dbCustomers) { 
@@ -26,13 +33,13 @@ router.post("/registeredCustomer", function(req, res) {
       if (dbCustomers.customer_password === req.body.customer_password)
         {
 
-           res.sendFile(process.cwd() + "/public/assets/html/home.html");
+           res.render(process.cwd() + "/public/assets/html/home.html");
           // res.json(dbCustomers);
 
         } 
           else 
         { 
-          res.send('Please make sure your a resistered users & your creditials are ok !');   
+          res.send("Please make sure you're a registered user & your credentials are correct!");   
         }
     }); 
 
