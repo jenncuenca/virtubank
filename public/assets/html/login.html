@@ -109,7 +109,8 @@
 
     <div class="bgimg-2">
         <div class="caption">
-            <span class="border" style="background-color:transparent;font-size:25px;color: #000;">Enroll<a href="#" class="signup" data-toggle="modal" data-target=".signup-modal">Here</a>Today</a>
+            <span class="border" style="background-color:transparent;font-size:25px;color: #000;">Enroll
+                <a href="#" class="signup" data-toggle="modal" data-target=".signup-modal">Here</a>Today</a>
             </span>
         </div>
     </div>
@@ -201,7 +202,7 @@
 
     <div class="bgimg-4">
         <div class="caption">
-            <span class="border">Thank You. :)</span>
+            <span class="border" style="opacity:0.5">Thank You. :)</span>
         </div>
     </div>
 
@@ -221,23 +222,21 @@
                     customer_email: $("#email").val().trim(),
                     customer_password: $("#key").val().trim(),
                 };
-                console.log("REG CUSTOMER: "+registeredCustomer);
+                console.log("REG CUSTOMER: " + registeredCustomer);
                 $.post("/registeredCustomer", registeredCustomer)
                     // on success, run this callback
                     .then(function (data) {
-                        console.log("DATA: "+data);
 
-
-                        // tell the user we're adding a character with an alert window
-                        // alert(" Welcome you are a registered Customer..."); 
                     });
 
             });
             // ============ N e w - U s e r - S i g n U p ===================
             $(".enroll").on("click", function (event) {
                 event.preventDefault();
+                var newpw = $("#newpw").val().trim();
+                var confirmpw = $("#confirmpw").val().trim();
 
-                if ($("#newpw").val().trim() === $("#confirmpw").val().trim()) {
+                if (newpw === confirmpw) {
                     var newUser = {
                         userName: $("#customer-name").val().trim(),
                         userEmail: $("#signup-email").val().trim(),
@@ -247,32 +246,27 @@
                         userPw: $("#confirmpw").val().trim()
                     }
                     console.log(newUser);
+                } else {
+                    console.log("Make sure your passwords match.")
                 }
 
-                
+                $.post("/newCustomer", newUser)
+                    // on success, run this callback
+                    .then(function (data) {
+                        console.log("DATA Customer: " + data);
+                        $("#customer-name").val("");
+                        $("#signup-email").val("");
+                        $("#phone-number").val("");
+                        $("#address").val("");
+                        $("#login-id").val("");
+                        $("#newpw").val("");
+                        $("#confirmpw").val("");
 
-                $.post("/registeredCustomer", newUser, function (data) {
-                    if (data) {
-                        app.get("/home", function(req, res) {
-                            res.sendFile(path.join(__dirname, "../public/home.html"));
-                        });
-
-                    } else {
-                        alert("Oops! Try again.")
-                    }
-                    $("#customer-name").val("");
-                    $("#signup-email").val("");
-                    $("#phone-number").val("");
-                    $("#address").val("");
-                    $("#login-id").val("");
-                    $("#confirmpw").val("");
-
-                })
+                    });
 
             })
 
-
-        });
+        })
     </script>
 
 </body>
