@@ -154,7 +154,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-custom" style="color:black">Recover</button>
+                            <button type="button" class="btn btn-custom" style="color:black" id="recovery-btn">Recover</button>
                         </div>
                     </div>
                 </div>
@@ -265,8 +265,28 @@
                     });
 
             })
+ 
+           // forgot password , create a route to send email 
+        
+           $("#recovery-btn").on("click", function (event) {
 
-        })
+               var forgotCustomer = {
+                    customer_email: $("#recovery-email").val().trim()
+
+                } 
+              
+                $.post("/forgotpassword", forgotCustomer)
+                    // on success, run this callback
+                    .then(function (data) {
+        
+                         event.preventDefault();
+
+                    });
+
+           });
+
+
+        })  // end of document ready 
     </script>
 
 </body>

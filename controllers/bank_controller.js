@@ -1,6 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
+var nodemailer = require('nodemailer');
 
 
 // Create all our routes and set up logic within those routes where required.
@@ -60,7 +61,7 @@ router.post("/registeredCustomer", function (req, res) {
 
 
 // get all account of one customer
-router.get("/customer/accts:id", function (req, res) {
+router.get("/customer/accts/:id", function (req, res) {
 
   db.Account.findAll({
     where: {
@@ -164,6 +165,37 @@ router.post("/newCustomer", function (req, res) {
 //   ac_balance: '200',
 //   ac_currency: 'USD'
 // })
+
+// This section is performing the forgot password setion.
+router.post("/forgotpassword",function (req,res) {
+  
+   console.log("hitting forgot password route");
+
+
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'test@gmail.com',
+      pass: 'xxxx'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'test@gmail.com',
+    to: req.body.customer_email,
+    subject: 'Sending Email using Node.js for password recovery !',
+    text: 'That is a Test!'
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  }); 
+
+});
 
 
 
