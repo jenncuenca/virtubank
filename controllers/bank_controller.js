@@ -51,12 +51,12 @@ router.post("/registeredCustomer", function (req, res) {
   });
 });
 
-router.post("/registeredCustomer", function (req, res) {
-  if (db.Customer.customer_password === req.body.customer_password) {
-    console.log("Password Matched - Redirect should work");
-    res.redirect("/home");
-  }
-})
+// router.post("/registeredCustomer", function (req, res) {
+//   if (db.Customer.customer_password === req.body.customer_password) {
+//     console.log("Password Matched - Redirect should work");
+//     res.redirect("/home");
+//   }
+// })
 
 
 // get all account of one customer
@@ -144,7 +144,7 @@ router.get("/customer/all/:id", function (req, res) {
 router.post("/newCustomer", function (req, res) {
   console.log('REQ BACKEND POST: ' + req);
   db.Customer.create({
-    id: Math.floor((Math.random() * 1000) + 4),
+    // id: Math.floor((Math.random() * 1000) + 4),
     customer_name: req.body.userName,
     customer_email: req.body.userEmail,
     customer_phone: req.body.userPhone,
