@@ -229,6 +229,8 @@
                      console.log(data);
                      if(data)
                      {   
+                         window.localStorage.setItem("customer", data.id);
+                         window.localStorage.setItem("customer_name", data.customer_name);
                          window.location.href="/home";
                      }
 

@@ -154,8 +154,8 @@
             $('.parallax').parallax();
 
         });
-        // var myname = "scott"
-        // $('#userName').html("WELCOME "+ myname)
+        var myname = window.localStorage.getItem("customer_name");
+        $('#userName').html("WELCOME "+ myname)
     </script>
 
     <style>
@@ -208,7 +208,7 @@
             background-color: rgb(30, 68, 26) !important;
         }
     </style>
-
+    
 </body>
 
 </html>

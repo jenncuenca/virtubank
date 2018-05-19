@@ -51,8 +51,8 @@ router.post("/registeredCustomer", function (req, res) {
 
       //res.json(dbCustomers);
       
-      console.log(res);
-      return res.send (true);
+      console.log(dbCustomers.id);
+      return res.json (dbCustomers);
 
      // res.sendFile(process.cwd() + "/public/assets/html/home.html");
     } else {
