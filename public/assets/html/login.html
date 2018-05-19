@@ -226,6 +226,11 @@
                 $.post("/registeredCustomer", registeredCustomer)
                     // on success, run this callback
                     .then(function (data) {
+                     console.log(data);
+                     if(data)
+                     {   
+                         window.location.href="/home";
+                     }
 
                     });
 

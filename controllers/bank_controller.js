@@ -4,6 +4,11 @@ var db = require("../models");
 var nodemailer = require('nodemailer');
 
 
+// router.use(function(req,res){  //express catch middleware if page doesn't exist
+// 	res.status(404);  //respond with status code
+// 	res.render('404'); //respond with 404 page
+// });
+
 // Create all our routes and set up logic within those routes where required.
 router.get("/login", function (req, res) {
 
@@ -43,21 +48,28 @@ router.post("/registeredCustomer", function (req, res) {
 
       console.log("password matched");
 
+
       //res.json(dbCustomers);
-      res.redirect("/home");
+      
+      console.log(res);
+      return res.send (true);
+
+     // res.sendFile(process.cwd() + "/public/assets/html/home.html");
     } else {
-      res.send('Please make sure your a resistered users & your creditials are ok !');
+     // res.json('Please make sure your a resistered users & your creditials are ok !');
+      return res.send(false);
 
     }
   });
 });
 
-router.post("/registeredCustomer", function (req, res) {
-  if (db.Customer.customer_password === req.body.customer_password) {
-    console.log("Password Matched - Redirect should work");
-    res.redirect("/home");
-  }
-})
+// router.post("/registeredCustomer", function (req, res) {
+//   if (db.Customer.customer_password === req.body.customer_password) {
+//     console.log("Password Matched - Redirect should work");
+//     res = true;
+//    // res.redirect("/home");
+//   }
+// })
 
 
 // get all account of one customer
@@ -175,13 +187,13 @@ router.post("/forgotpassword",function (req,res) {
   var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'test@gmail.com',
+      user: 'manukutty74@gmail.com',
       pass: 'xxxx'
     }
   });
   
   var mailOptions = {
-    from: 'test@gmail.com',
+    from: 'manukutty74@gmail.com',
     to: req.body.customer_email,
     subject: 'Sending Email using Node.js for password recovery !',
     text: 'That is a Test!'
@@ -197,6 +209,13 @@ router.post("/forgotpassword",function (req,res) {
 
 });
 
+
+router.get("/hello", function (req, res) {
+
+  res.redirect('/home');
+
+  
+  });
 
 
 module.exports = router;
