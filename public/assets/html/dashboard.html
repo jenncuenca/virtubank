@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <!-- STYLE SHEET -->
+
+    <style>
+        body {
+            background: rgba(187, 134, 134, 0.219);
+        }
+
+        h2 {
+            color: white;
+        }
+
+        div.nav-wrapper.grey.accent-8 {
+            background: #4caf5087;
+        }
+
+        .bgimg1,
+        .bgimg2 {
+            position: relative;
+            opacity: 0.45;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .header {
+            margin-left: 10px;
+        }
+
+        #logo {
+            height: 50px;
+            width: auto;
+        }
+
+        .parallax-container {
+            height: 300px;
+        }
+
+        .page-footer {
+            padding-top: 20px;
+            color: #fff;
+            background-color: #9cbf84;
+        }
+
+        .green {
+            background-color: #2e5822 !important;
+        }
+
+        .grey {
+            background-color: rgb(30, 68, 26) !important;
+        }
+        .withdrawl {
+            color: red;
+        }
+
+        .deposit {
+            color: lime;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper grey accent-7">
+                <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center" id="logo">
+                <img/>
+                <a class="header" id="userName">| Welcome User</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>
+                        <a href="/customers">Accounts</a>
+                    </li>
+                    <li>
+                        <a href="/loans">Loans</a>
+                    </li>
+                    <li>
+                        <a href="/login">Log Out</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <!-- PARALLAX BG -->
+
+    <div class="parallax-container bgimg1">
+        <div class="parallax">
+            <img src="https://wallpaperlayer.com/img/2015/10/sunshine-wallpaper-7486-7775-hd-wallpapers.jpg">
+        </div>
+    </div>
+
+    <!-- CUSTOMER ACCOUNT TABLE -->
+    <div class="section green accent-8">
+        <div class="container">
+            <div class="col s12 white-text">
+                <table class="responsive-table striped">
+                    <tr>
+                        <th>Account</th>
+                        <th>Balance</th>
+                        <th>Deposits</th>
+                        <th>Withdraws</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td>Checking</td>
+                        <td>$2200</td>
+                        <td>
+                           <p class='deposit'> + $300 </p>
+                        </td>
+                        <td>
+                                <p class='withdrawl'> - $500 </p>
+                        </td>
+                        <td>
+                            <a class="btn disabled"> See More</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Savings</td>
+                        <td>$1000</td>
+                        <td>
+                                <p class='deposit'>+ $ 200</p>
+                        </td>
+                        <td>
+                                <p class='withdrawl'>$0</p>
+                        </td>
+                        <td>
+                            <a class="btn disabled"> See More</a>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <!-- loan modal -->
+                <!-- modal trigger button -->
+                <a class="waves-effect waves-light btn modal-trigger" href="#modal1">APPLY FOR A LOAN</a>
+
+                <!-- Modal Structure -->
+                <div id="modal1" class="modal">
+                    <div class="modal-content green">
+                        <h4>APPLY FOR A LOAN BELOW</h4>
+                        <!-- FORM START -->
+                        <div class="row">
+                            <form class="col s12">
+                                <div class="row">
+                                    <!-- NAME -->
+                                    <div class="input-field col s6">
+                                        <input id="first_name" type="text" class="validate">
+                                        <label for="first_name">First Name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input id="last_name" type="text" class="validate">
+                                        <label for="last_name">Last Name</label>
+                                    </div>
+                                </div>
+                                <!-- address-->
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="address" type="text" class="validate">
+                                        <label for="address">Address</label>
+                                    </div>
+                                </div>
+                                <!-- phone -->
+                                <div class="input-field col s12">
+                                    <input id="telephone" type="tel" class="validate">
+                                    <label for="telephone">Telephone</label>
+                                </div>
+                               <h5>LOG IN:</h5>
+                                <!-- email - login -->
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">Email</label>
+                                    </div>
+                                </div>
+                                <!-- PASSWORD-->
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="password" name="newpw" type="password" class="validate" autocomplete="off">
+                                        <label for="password">Password</label>
+                                    </div>
+                                </div>
+
+                                <!-- modal footer -->
+                                <div class="modal-footer">
+                                    <!-- CANCEL BUTTON -->
+                                    <a href="#!" class="modal-close waves-effect waves-green btn-flat">CLICK TO CONTINUE</a>
+                                    <!-- AGREE BUTTON -->
+                                    <a href="#!" class="modal-close waves-effect waves-red btn-flat">CANCEL</a>
+                                </div>
+                        </div>
+                        <!-- end modal-->
+                    </div>
+                    </form>
+                </div>
+                <!-- FORM END -->
+
+            </div>
+            <!-- MODAL END -->
+        </div>
+
+
+
+        <div>
+
+            <!-- SECOND PARALLAX DIVIDER -->
+            <div class="parallax-container bgimg2">
+                <div class="parallax">
+                    <img src="http://www.hd-wallpapersdownload.com/script/new-wallpaper/wonderful-sunshine-nature-wallpaper-in-hd.jpg">
+                </div>
+            </div>
+
+            <!-- footer -->
+            <footer class="page-footer green accent-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Bank Statements</h5>
+                            <p class="grey-text text-lighten-4">View Statements here.</p>
+                        </div>
+                        <div class="col l4 offset-l2 s12">
+                            <h5 class="white-text">Links</h5>
+                            <ul>
+                                <li>
+                                    <a class="grey-text text-lighten-3" href="/accounts">Accounts</a>
+                                </li>
+                                <li>
+                                    <a class="grey-text text-lighten-3" href="/api/customers">Contact Information</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright grey accent-8">
+                    <div class="container center">
+                        <img src="../images/Asset 1ldpi.png" alt="virtuabank logo" class="text-center">
+                        <img/>
+                    </div>
+                </div>
+            </footer>
+
+            <!-- JAVASCRIPT-->
+            <script>
+                $(document).ready(function () {
+                    $('.parallax').parallax();
+
+                });
+                var myname = window.localStorage.getItem("customer_name");
+                $('#userName').html("WELCOME " + myname)
+
+                $(document).ready(function () {
+                    $('.modal').modal();
+                });
+            </script>
+
+</body>
+
+</html>
