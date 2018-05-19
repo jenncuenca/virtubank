@@ -47,29 +47,14 @@ router.post("/registeredCustomer", function (req, res) {
     if (dbCustomers.customer_password === req.body.customer_password) {
 
       console.log("password matched");
-
-
-      //res.json(dbCustomers);
-      
       console.log(dbCustomers.id);
-      return res.json (dbCustomers);
-
-     // res.sendFile(process.cwd() + "/public/assets/html/home.html");
+      return res.send(true);
     } else {
-     // res.json('Please make sure your a resistered users & your creditials are ok !');
       return res.send(false);
 
     }
   });
 });
-
-// router.post("/registeredCustomer", function (req, res) {
-//   if (db.Customer.customer_password === req.body.customer_password) {
-//     console.log("Password Matched - Redirect should work");
-//     res = true;
-//    // res.redirect("/home");
-//   }
-// })
 
 
 // get all account of one customer
@@ -166,7 +151,7 @@ router.post("/newCustomer", function (req, res) {
     customer_password: req.body.userPw
   }).then(newUser => {
     console.log("New user created: " + newUser.customer_name)
-    res.redirect("/home");
+    return res.send(true);
   });
 
 });
@@ -179,9 +164,9 @@ router.post("/newCustomer", function (req, res) {
 // })
 
 // This section is performing the forgot password setion.
-router.post("/forgotpassword",function (req,res) {
-  
-   console.log("hitting forgot password route");
+router.post("/forgotpassword", function (req, res) {
+
+  console.log("hitting forgot password route");
 
 
   var transporter = nodemailer.createTransport({
@@ -191,21 +176,21 @@ router.post("/forgotpassword",function (req,res) {
       pass: 'xxxx'
     }
   });
-  
+
   var mailOptions = {
     from: 'manukutty74@gmail.com',
     to: req.body.customer_email,
     subject: 'Sending Email using Node.js for password recovery !',
     text: 'That is a Test!'
   };
-  
-  transporter.sendMail(mailOptions, function(error, info){
+
+  transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
     } else {
       console.log('Email sent: ' + info.response);
     }
-  }); 
+  });
 
 });
 
@@ -214,8 +199,8 @@ router.get("/hello", function (req, res) {
 
   res.redirect('/home');
 
-  
-  });
+
+});
 
 
 module.exports = router;
