@@ -51,13 +51,14 @@
             color: #000;
         }
 
-        .caption span.border, .border {
+        .caption span.border,
+        .border {
             color: #fff;
             padding: 18px;
             font-size: 25px;
             letter-spacing: 10px;
-            background-color: rgba(0,0,0,.5);
-	        border-radius: 10px;
+            background-color: rgba(0, 0, 0, .5);
+            border-radius: 10px;
         }
 
         .signup {
@@ -227,13 +228,12 @@
                 $.post("/registeredCustomer", registeredCustomer)
                     // on success, run this callback
                     .then(function (data) {
-                     console.log(data);
-                     if(data)
-                     {   
-                         window.localStorage.setItem("customer", data.id);
-                         window.localStorage.setItem("customer_name", data.customer_name);
-                         window.location.href="/home";
-                     }
+                        console.log(data);
+                        if (data) {
+                            window.localStorage.setItem("customer", data.id);
+                            window.localStorage.setItem("customer_name", data.customer_name);
+                            window.location.href = "/home";
+                        }
 
                     });
 
@@ -261,6 +261,11 @@
                 $.post("/newCustomer", newUser)
                     // on success, run this callback
                     .then(function (data) {
+                        if (data) {
+                            window.localStorage.setItem("customer", data.id);
+                            window.localStorage.setItem("customer_name", data.customer_name);
+                            window.location.href = "/home";
+                        }
                         console.log("DATA Customer: " + data);
                         $("#customer-name").val("");
                         $("#signup-email").val("");
@@ -273,28 +278,28 @@
                     });
 
             })
- 
-           // forgot password , create a route to send email 
-        
-           $("#recovery-btn").on("click", function (event) {
 
-               var forgotCustomer = {
+            // forgot password , create a route to send email 
+
+            $("#recovery-btn").on("click", function (event) {
+
+                var forgotCustomer = {
                     customer_email: $("#recovery-email").val().trim()
 
-                } 
-              
+                }
+
                 $.post("/forgotpassword", forgotCustomer)
                     // on success, run this callback
                     .then(function (data) {
-        
-                         event.preventDefault();
+
+                        event.preventDefault();
 
                     });
 
-           });
+            });
 
 
-        })  // end of document ready 
+        }) // end of document ready
     </script>
 
 </body>

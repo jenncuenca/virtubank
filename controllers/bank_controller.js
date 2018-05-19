@@ -171,7 +171,7 @@ router.post("/newCustomer", function (req, res) {
     customer_password: req.body.userPw
   }).then(newUser => {
     console.log("New user created: " + newUser.customer_name)
-    res.redirect("/home");
+    return res.json (newUser);
   });
 
 });
