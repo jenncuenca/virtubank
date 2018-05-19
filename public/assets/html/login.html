@@ -51,12 +51,13 @@
             color: #000;
         }
 
-        .caption span.border {
-            background-color: #111;
+        .caption span.border, .border {
             color: #fff;
             padding: 18px;
             font-size: 25px;
             letter-spacing: 10px;
+            background-color: rgba(0,0,0,.5);
+	        border-radius: 10px;
         }
 
         .signup {
@@ -118,11 +119,11 @@
     <div style="position:relative;">
         <div style="color:#ddd;background-color:#9cbf84;text-align:center;padding:50px 80px;text-align: center;">
             <div class="form-wrap">
-                <h1>Log in with your User-ID </h1>
+                <h1>Log in with your email account </h1>
                 <form role="form" action="javascript:;" method="post" id="login-form" autocomplete="off">
                     <div class="form-group">
                         <label for="email" class="sr-only">Email</label>
-                        <input type="email" name="email" id="email" class="form-control" placeholder="A Registered User Id">
+                        <input type="email" name="email" id="email" class="form-control" placeholder="A Registered User Email">
                     </div>
                     <div class="form-group">
                         <label for="key" class="sr-only">Password</label>
