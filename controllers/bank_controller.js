@@ -33,6 +33,11 @@ router.get("/customers", function (req, res) {
 
 });
 
+//hard coded dashboard
+router.get("/dashboard", function (req, res) {
+  res.sendFile(process.cwd() + "/public/assets/html/dashboard.html");
+});
+
 //get user login id and check against the database
 router.post("/registeredCustomer", function (req, res) {
 
