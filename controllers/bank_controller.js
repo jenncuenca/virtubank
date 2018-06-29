@@ -77,6 +77,24 @@ router.post("/registeredCustomer", function (req, res) {
 // })
 
 
+// get all accts for one customer 
+
+router.get("/getCustomerbyAccts", function (req, res) {
+
+  db.Account.findAll({
+    where: {
+      customer_no: req.params.customer_no
+    }
+  }).then(function (dbAccounts) {
+
+      res.json(dbAccounts);
+     
+     //return res.render("index",{dbAccounts:dbAccounts});
+
+  });
+});
+
+
 // get all account of one customer
 router.get("/customer/accts/:id", function (req, res) {
 
@@ -86,7 +104,9 @@ router.get("/customer/accts/:id", function (req, res) {
     }
   }).then(function (dbAccounts) {
 
-    res.json(dbAccounts);
+    //res.json(dbAccounts);
+     
+     return res.render("index",{dbAccounts:dbAccounts});
 
   });
 });
@@ -186,33 +206,34 @@ router.post("/newCustomer", function (req, res) {
 // This section is performing the forgot password setion.
 router.post("/forgotpassword",function (req,res) {
   
-   console.log("hitting forgot password route");
+  console.log("hitting forgot password route");
 
 
-  var transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: 'manukutty74@gmail.com',
-      pass: 'xxxx'
-    }
-  });
-  
-  var mailOptions = {
-    from: 'manukutty74@gmail.com',
-    to: req.body.customer_email,
-    subject: 'Sending Email using Node.js for password recovery !',
-    text: 'That is a Test!'
-  };
-  
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  }); 
+ var transporter = nodemailer.createTransport({
+   service: 'gmail',
+   auth: {
+     user: 'uomtestbank@gmail.com',
+     pass: 'umboot123'
+   }
+ });
+ 
+ var mailOptions = {
+   from: 'uomtestbank@gmail.com',
+   to: req.body.customer_email,
+   subject: 'Sending Email using Node.js for password recovery !',
+   text: 'That is a Test!'
+ };
+ 
+ transporter.sendMail(mailOptions, function(error, info){
+   if (error) {
+     console.log(error);
+   } else {
+     console.log('Email sent: ' + info.response);
+   }
+ }); 
 
 });
+
 
 
 router.get("/hello", function (req, res) {
@@ -221,6 +242,27 @@ router.get("/hello", function (req, res) {
 
   
   });
+
+
+// webhook 
+
+router.post("/customer/ac/:id", function (req, res) {
+  console.log("test");
+
+  db.Account.findAll({
+    where: {
+      customer_no: req.params.id
+    }
+  }).then(function (dbAccounts) {
+
+    res.json(dbAccounts);
+        
+
+  });
+});
+
+
+
 
 
 module.exports = router;

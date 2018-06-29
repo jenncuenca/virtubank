@@ -59,6 +59,7 @@
         .grey {
             background-color: rgb(30, 68, 26) !important;
         }
+
         .withdrawl {
             color: red;
         }
@@ -80,7 +81,7 @@
                 <a class="header" id="userName">| Welcome User</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
-                        <a href="/customers">Accounts</a>
+                        <a id="accts">Accounts</a>
                     </li>
                     <li>
                         <a href="/loans">Loans</a>
@@ -117,10 +118,10 @@
                         <td>Checking</td>
                         <td>$2200</td>
                         <td>
-                           <p class='deposit'> + $300 </p>
+                            <p class='deposit'> + $300 </p>
                         </td>
                         <td>
-                                <p class='withdrawl'> - $500 </p>
+                            <p class='withdrawl'> - $500 </p>
                         </td>
                         <td>
                             <a class="btn disabled"> See More</a>
@@ -130,10 +131,10 @@
                         <td>Savings</td>
                         <td>$1000</td>
                         <td>
-                                <p class='deposit'>+ $ 200</p>
+                            <p class='deposit'>+ $ 200</p>
                         </td>
                         <td>
-                                <p class='withdrawl'>$0</p>
+                            <p class='withdrawl'>$0</p>
                         </td>
                         <td>
                             <a class="btn disabled"> See More</a>
@@ -175,7 +176,7 @@
                                     <input id="telephone" type="tel" class="validate">
                                     <label for="telephone">Telephone</label>
                                 </div>
-                               <h5>LOG IN:</h5>
+                                <h5>LOG IN:</h5>
                                 <!-- email - login -->
                                 <div class="row">
                                     <div class="input-field col s12">
@@ -261,6 +262,27 @@
                 $(document).ready(function () {
                     $('.modal').modal();
                 });
+
+
+                $("#acct").on("click", function (event) {
+
+                            event.preventDefault();
+
+                            var registeredCustomer = {
+                                customer_no:  window.localStorage.getItem("customer")
+                                
+                            };
+
+                           
+                            $.get("/getCustomerbyAccts", registeredCustomer)
+                                // on success, run this callback
+                                .then(function (data) {
+                                    console.log(data);
+                                    
+                                })
+                            });
+                            
+
             </script>
 
 </body>

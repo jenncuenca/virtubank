@@ -93,6 +93,21 @@
             }
         }
     </style>
+    <script type="text/javascript">
+        (function(d, m){ 
+          var o = {"appId":"5ff9068d1adac16a59d35690c5f9501","isAnonymousChat":true,"agentId":"manu_kutty@yahoo.com","agentName":"VirtubankGenie","conversationTitle":"VirtuBankGenie","email":"",botIds:["virtubankbot"]};
+          var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+          s.src = "https://api.kommunicate.io/kommunicate.app";
+          var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+          window.kommunicate = m; m._globals = o;
+        })(document, window.kommunicate || {});
+    </script>
+
+
+
+
+
+
 </head>
 
 <body>
@@ -232,7 +247,7 @@
                         if (data) {
                             window.localStorage.setItem("customer", data.id);
                             window.localStorage.setItem("customer_name", data.customer_name);
-                            window.location.href = "/home";
+                            window.location.href = "/dashboard";
                         }
 
                     });

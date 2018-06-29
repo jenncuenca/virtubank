@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html> lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -22,10 +22,10 @@
                 <a class="header" id="userName">| Welcome User</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li>
-                        <a href="/customers">Accounts</a>
+                        <a id="acct" href=>Accounts</a>
                     </li>
                     <li>
-                        <a href="/loans">Loans</a>
+                        <a href=>Loans</a>
                     </li>
                     <li>
                         <a href="/login">Log Out</a>
@@ -153,13 +153,41 @@
         $(document).ready(function () {
             $('.parallax').parallax();
 
-        });
+            $('.loan-modal').modal();
+    
+
+
+             $("#acct").on("click", function (event) {
+
+                event.preventDefault();
+
+                var registeredCustomer = {
+                    customer_no:  window.localStorage.getItem("customer")
+                }
+                console.log("REG CUSTOMER: " + registeredCustomer)
+                $.post("/registeredCustomer", registeredCustomer)
+                    // on success, run this callback
+                    .then(function (data) {
+                        console.log(data);
+                        if (data) {
+                            window.localStorage.setItem("customer", data.id);
+                            window.localStorage.setItem("customer_name", data.customer_name);
+                            window.location.href = "/dashboard";
+                        }
+
+                    })
+
+             });
+
+
+
+
         var myname = window.localStorage.getItem("customer_name");
         $('#userName').html("WELCOME "+ myname)
 
-        $(document).ready(function(){
-    $('.loan-modal').modal();
-  });
+        });
+
+
     </script>
 
     <style>
@@ -213,6 +241,6 @@
         }
     </style>
     
-</body>
+ </body>
 
 </html>
